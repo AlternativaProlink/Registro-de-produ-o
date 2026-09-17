@@ -3,43 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro Infra</title>
+    <title>Registro de Produção — Pro Link</title>
     <style>
         * { box-sizing: border-box; }
-        body { margin: 0; background: #eef2f5; font-family: Arial, sans-serif; color: #1f2937; }
-        .top-bar { background: #0f172a; color: white; padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; }
-        .top-bar button { background: #2563eb; color: white; border: none; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-weight: bold; }
-        .app { max-width: 520px; margin: auto; background: white; min-height: 100vh; position: relative; }
-        .top { background: #123b5d; color: white; padding: 22px 18px; }
-        .top h1 { margin: 0; font-size: 21px; }
-        .top p { margin: 6px 0 0; font-size: 13px; }
-        main { padding: 18px; }
-        .sec { margin-bottom: 22px; }
-        .t { font-weight: bold; color: #123b5d; margin-bottom: 10px; }
-        label { display: block; font-size: 13px; font-weight: bold; margin: 9px 0 5px; }
-        input, select, textarea { width: 100%; padding: 13px; border: 1px solid #d1d5db; border-radius: 9px; font-size: 15px; }
-        textarea { min-height: 80px; }
-        .card, .choice { border: 1px solid #dbe2e8; border-radius: 9px; padding: 11px; margin: 7px 0; }
-        .grid { display: grid; grid-template-columns: 1fr 90px; gap: 8px; }
-        .unit { font-size: 12px; color: #6b7280; margin-top: 5px; }
-        .btn { width: 100%; padding: 13px; border: 0; border-radius: 9px; font-weight: bold; cursor: pointer; }
-        .add { background: #e7f0f7; color: #123b5d; }
-        .rm { background: #fee2e2; color: #991b1b; margin-top: 8px; }
-        .send { background: #123b5d; color: white; font-size: 16px; margin-top: 10px; }
-        .hidden { display: none !important; }
-        .note { font-size: 12px; color: #6b7280; margin-top: 6px; }
+        body { margin: 0; background: #f0f4f2; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #1e293b; }
+        
+        .app { max-width: 500px; margin: auto; background: white; min-height: 100vh; position: relative; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+        
+        .top { background: #356852; color: white; padding: 24px 20px 20px; text-align: center; border-bottom-left-radius: 16px; border-bottom-right-radius: 16px; }
+        .logo-container { background: white; padding: 12px 20px; border-radius: 12px; display: inline-block; margin-bottom: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .logo-container img { max-width: 180px; height: auto; display: block; }
+        .top h1 { margin: 8px 0 0; font-size: 20px; font-weight: 700; letter-spacing: -0.3px; }
+        .top p { margin: 4px 0 0; font-size: 13px; opacity: 0.9; }
 
-        .editor-panel { display: none; background: #eff6ff; border: 2px dashed #2563eb; padding: 15px; margin: 15px; border-radius: 10px; }
-        .edit-mode .editor-panel { display: block; }
-        .edit-btn { background: #2563eb; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold; margin-top: 5px; }
-        .edit-btn.del { background: #dc2626; }
-        .edit-btn.warn { background: #d97706; }
-        .edit-box { border-bottom: 1px dashed #cbd5e1; padding-bottom: 12px; margin-bottom: 12px; }
+        main { padding: 20px; }
+        .sec { margin-bottom: 24px; background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; box-shadow: 0 2px 6px rgba(0,0,0,0.02); }
+        .t { font-weight: 700; color: #356852; margin-bottom: 12px; font-size: 15px; border-bottom: 2px solid #e8f0ec; padding-bottom: 6px; }
+        label { display: block; font-size: 13px; font-weight: 600; margin: 10px 0 5px; color: #334155; }
         
-        .membro-item { display: flex; justify-content: space-between; align-items: center; background: #fff; padding: 6px 10px; border: 1px solid #cbd5e1; border-radius: 6px; margin-top: 4px; font-size: 14px; }
-        .membro-item button { background: #fee2e2; color: #991b1b; border: 1px solid #f87171; padding: 3px 8px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: bold; }
+        input, select, textarea { width: 100%; padding: 12px; border: 1.5px solid #cbd5e1; border-radius: 8px; font-size: 14px; color: #1e293b; transition: all 0.2s; outline: none; }
+        input:focus, select:focus, textarea:focus { border-color: #356852; box-shadow: 0 0 0 3px rgba(53, 104, 82, 0.15); }
+        textarea { min-height: 80px; resize: vertical; }
         
-        #loading { position: fixed; top: 0; left: 0; width: 100%; background: #2563eb; color: white; text-align: center; padding: 5px; font-size: 12px; font-weight: bold; display: none; z-index: 999; }
+        .card, .choice { border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; margin: 8px 0; background: #f8faf9; }
+        .choice { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; cursor: pointer; }
+        .choice input { width: auto; margin: 0; }
+        
+        .grid { display: grid; grid-template-columns: 1fr 100px; gap: 10px; }
+        .unit { font-size: 12px; color: #64748b; margin-top: 6px; font-weight: 500; }
+        
+        .btn { width: 100%; padding: 14px; border: 0; border-radius: 8px; font-weight: 700; cursor: pointer; transition: background 0.2s; font-size: 14px; }
+        .add { background: #e8f0ec; color: #356852; }
+        .add:hover { background: #d1e1d9; }
+        .rm { background: #fef2f2; color: #dc2626; margin-top: 10px; border: 1px solid #fecaca; }
+        .send { background: #356852; color: white; font-size: 16px; margin-top: 12px; box-shadow: 0 4px 12px rgba(53, 104, 82, 0.25); }
+        .send:hover { background: #2a5442; }
+        
+        .hidden { display: none !important; }
+        .note { font-size: 12px; color: #64748b; margin-top: 6px; }
+
+        .input-error { border-color: #dc2626 !important; background-color: #fef2f2 !important; }
+
+        #loading { position: fixed; top: 0; left: 0; width: 100%; background: #356852; color: white; text-align: center; padding: 8px; font-size: 13px; font-weight: bold; display: none; z-index: 999; box-shadow: 0 2px 8px rgba(0,0,0,0.2); }
     </style>
 </head>
 <body>
@@ -48,14 +53,21 @@
 
 <div class="app">
     <header class="top">
+        <div class="logo-container">
+            <img src="VERDE.png" alt="Pro Link Serviços" onerror="this.src='https://i.imgur.com/vH1y3uA.png'">
+        </div>
         <h1>Registro de Produção</h1>
-        <p>Infraestrutura — protótipo de campo</p>
+        <p>Infraestrutura</p>
     </header>
 
     <!-- FORMULÁRIO PRINCIPAL -->
     <main id="form">
         <div class="sec">
             <div class="t">1. Identificação</div>
+            
+            <label>Número da OS</label>
+            <input id="numOS" placeholder="Ex: OS-10254" autocomplete="off">
+
             <label>Equipe</label>
             <select id="selectEquipe" onchange="atualizarMembros()"></select>
 
@@ -91,7 +103,7 @@
             <div id="ib" class="hidden">
                 <div id="occurrences"></div>
                 <button class="btn add" type="button" onclick="addOcorrencia()" style="margin-top: 10px;">+ Adicionar ocorrência</button>
-                <div class="note">Adicione as ocorrências observadas e seus detalhes.</div>
+                <div class="note">A descrição do imprevisto é obrigatória ao adicionar uma ocorrência.</div>
             </div>
         </div>
 
@@ -121,24 +133,21 @@
         <button class="btn send" type="button" onclick="enviar()">Enviar registro</button>
     </main>
 
-    <div id="ok" style="display:none;text-align:center;padding:30px">
-        <h2>✓ Registro enviado</h2>
-        <p>Protótipo: registro concluído.</p>
-        <button class="btn add" onclick="location.reload()" style="margin-top:15px;">Novo Registro</button>
+    <div id="ok" style="display:none;text-align:center;padding:40px 20px;">
+        <h2 style="color: #356852; margin-bottom: 8px;">✓ Registro enviado</h2>
+        <p style="color: #64748b; font-size: 14px;">Lançamento gravado com sucesso.</p>
+        <button class="btn add" onclick="location.reload()" style="margin-top:20px;">Novo Registro</button>
     </div>
 </div>
 
 <script>
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx-yJQVxbrjZu0_YInek5GjKKLrArLm40iQhP05TJpAHqK5MMX5CpUGb553cgMcw1ns/exec";
 
-    // -------------------------------------------------------------
-    // EDITE SUAS OPÇÕES DIRETAMENTE AQUI NO CÓDIGO
-    // -------------------------------------------------------------
     const appData = {
         equipes: { 
             "Equipe 01": ["Gecivaldo", "Ivan"], 
-            "Equipe 07": ["Josival", "Johnnes"], 
-            "Equipe 08": ["Jhonny", "Leandro", "João Antônio"], 
+            "Equipe 07": ["Josival", "Johnnes Marcos"], 
+            "Equipe 08": ["Jhonny Leandro", "João Antônio"], 
             "Equipe 11": ["José Jailson", "Vanderlei"], 
             "Equipe 22": ["Fernando", "Fábio Júnior"] 
         },
@@ -155,7 +164,6 @@
             "Teste infra"
         ],
         servicos: {
-            "Fazer fusão na cto": "unidade",
             "Lançamento de cabo óptico": "metro",
             "Retirada de cabo sem uso": "metro",
             "Reposicionamento de cabo": "metro",
@@ -163,39 +171,74 @@
             "Instalação de cordoalha": "metro",
             "Organização de cabo em poste": "unidade/poste",
             "Substituição de trecho de cabo": "metro",
+            "Substituição de trecho de rede": "metro",
+            "Reparo de cabo danificado": "metro",
+            "Manutenção em Ancoragem": "unidade",
+            "Instalação de ferragem": "unidade",
+            "Retirada de ferragem": "unidade",
+            "Correção de ferragem": "unidade",
+            "Cabeamento interno": "metro",
             "Instalação de CTO": "unidade",
             "Instalação de CEO": "unidade",
             "Instalação de CEP": "unidade",
-            "Modificação de CTO": "unidade",
-            "Modificação de CEO": "unidade",
-            "Modificação de CEP": "unidade",
-            "Pintura de CTO": "unidade",
-            "Pintura de CEO": "unidade",
-            "Pintura de CEP": "unidade",
+            "Manutenção de CTO": "unidade",
+            "Manutenção de CEO": "unidade",
+            "Manutenção de CEP": "unidade",
             "Substituição de caixa": "unidade",
             "Reorganização de reserva da CTO": "unidade",
-            "Identificação de clientes nas portas da CTO": "caixa",
             "Rebaixamento de caixa": "unidade",
+            "Reparo de caixa danificada": "unidade",
+            "Ampliação de CTO": "unidade",
+            "Identificação de CEO": "unidade",
+            "Identificação de CEP": "unidade",
+            "Identificação de CTO (Clientes)": "unidade",
+            "Identificação de CTO (Pinturas)": "unidade",
+            "Identificação de clientes nas portas da CTO": "unidade",
             "Identificação de fibra": "fibra",
+            "Identificação de rede": "unidade",
             "Organização de fibras": "unidade/caixa",
             "Correção de fusão": "serviço",
             "Teste com OTDR": "unidade",
+            "Tirar curvas com OTDR": "unidade",
             "Verificação de potência óptica": "caixa",
+            "Verificar potência da CTO": "caixa",
+            "Correção de sinal": "unidade",
             "Certificação da rede": "unidade",
+            "Certificação de porta": "unidade",
+            "Reparo em rompimento de fibra": "unidade",
             "Implantação de poste": "unidade",
+            "Implantação de poste de madeira": "unidade",
+            "Implantação de poste de madeira com escavação": "unidade",
             "Retirada de poste": "unidade",
+            "Remoção de poste": "unidade",
             "Substituição de poste": "unidade",
             "Reposicionamento de poste": "unidade",
-            "Instalação de ferragem": "unidade",
-            "Retirada de ferragem": "unidade",
-            "Reparo de cabo danificado": "metro",
-            "Reparo de caixa danificada": "unidade",
-            "Substituição de trecho de rede": "metro",
-            "Retirada de rede abandonada": "metro",
-            "Regularização de rede": "unidade",
-            "Levantamento de rota": "levantamento",
-            "Levantamento de posteamento": "poste",
-            "Levantamento para expansão": "levantamento"
+            "Organização de rede após troca de poste": "unidade",
+            "Regularização de rede após serviço da concessionária": "unidade",
+            "Adequação de rede no padrão da concessionária": "unidade",
+            "Acompanhar fiscalização da concessionária": "serviço",
+            "Poda de árvore": "unidade",
+            "Transporte de postes": "unidade",
+            "Transporte de materiais diversos": "viagem",
+            "Vistoria para manutenção e podas": "vistoria",
+            "Levantamento para expansão": "levantamento",
+            "Levantamento de viabilidade para expansão": "levantamento",
+            "Marcação para implantação de postes": "unidade",
+            "Manutenção em POP": "unidade",
+            "Manutenção em retransmissão": "unidade",
+            "Retirada de equipamentos de retransmissão": "unidade",
+            "Verificação na OLT": "unidade",
+            "Instalação de gerador": "unidade",
+            "Retirada de gerador": "unidade",
+            "Manutenção em baterias": "unidade",
+            "Desmontar torre": "unidade",
+            "Mudar VLAN de clientes": "unidade",
+            "Ativação de link": "unidade",
+            "Montagem de D.I.O": "unidade",
+            "Retirar de estrutura em eventos": "evento",
+            "Wi-Fi em eventos": "evento",
+            "Correção de serviço": "serviço",
+            "Serviços gerais": "serviço"
         },
         ocorrencias: [
             "Poste caindo",
@@ -297,7 +340,7 @@
         d.innerHTML = '<select><option value="">Selecione a ocorrência</option>' +
             (appData.ocorrencias || []).map(x => '<option value="' + x + '">' + x + '</option>').join('') +
             '</select>' +
-            '<textarea placeholder="Descrição breve do imprevisto..." style="margin-top: 8px; min-height: 60px;"></textarea>' +
+            '<textarea placeholder="Descrição detalhada do imprevisto (Obrigatório)..." style="margin-top: 8px; min-height: 60px;"></textarea>' +
             '<button class="btn rm" type="button" onclick="this.parentElement.remove()">Remover</button>';
         document.getElementById('occurrences').appendChild(d);
     }
@@ -311,14 +354,23 @@
     }
 
     async function enviar() {
+        const numOS = document.getElementById('numOS').value.trim();
         const equipe = document.getElementById('selectEquipe').value;
         const responsavel = document.getElementById('selectResponsavel').value;
         const data = document.getElementById('dataAtual').value;
         const local = document.getElementById('localRef').value.trim();
         const demanda = document.getElementById('selectDemanda').value;
 
+        const inputOS = document.getElementById('numOS');
+        inputOS.classList.remove('input-error');
+
+        if (!numOS) {
+            inputOS.classList.add('input-error');
+            return alert('Preencha o número da Ordem de Serviço (OS).');
+        }
+
         if (!equipe || !responsavel || !data || !local || !demanda) {
-            return alert('Preencha os campos obrigatórios da seção 1 e 2.');
+            return alert('Preencha todos os campos obrigatórios da seção 1 e 2.');
         }
 
         const cards = document.querySelectorAll('#services .card');
@@ -347,22 +399,45 @@
                 return alert('Você marcou que houve imprevisto. Adicione pelo menos uma ocorrência ou altere para "Não".');
             }
 
-            let ocorrenciaInvalida = false;
+            let ocorrenciaSemTipo = false;
+            let ocorrenciaSemDescricao = false;
+
             cardsOcc.forEach(card => {
-                const tipo = card.querySelector('select').value;
-                const descricao = card.querySelector('textarea').value.trim();
+                const selectElem = card.querySelector('select');
+                const txtElem = card.querySelector('textarea');
+                
+                const tipo = selectElem.value;
+                const descricao = txtElem.value.trim();
+                
+                selectElem.classList.remove('input-error');
+                txtElem.classList.remove('input-error');
+
                 if (!tipo) {
-                    ocorrenciaInvalida = true;
+                    ocorrenciaSemTipo = true;
+                    selectElem.classList.add('input-error');
                 }
-                ocorrenciasExecutadas.push(`${tipo}${descricao ? ': ' + descricao : ''}`);
+
+                if (!descricao) {
+                    ocorrenciaSemDescricao = true;
+                    txtElem.classList.add('input-error');
+                }
+
+                ocorrenciasExecutadas.push(`${tipo}: ${descricao}`);
             });
 
-            if (ocorrenciaInvalida) return alert('Selecione o tipo para todas as ocorrências adicionadas.');
+            if (ocorrenciaSemTipo) {
+                return alert('Selecione o tipo para todas as ocorrências adicionadas.');
+            }
+
+            if (ocorrenciaSemDescricao) {
+                return alert('Por favor, detalhe a descrição do imprevisto na ocorrência selecionada.');
+            }
         }
 
         const houveTransporte = document.querySelector('input[name="tr"]:checked').value === 's';
 
         const payloadEnvio = {
+            ordemServico: numOS,
             equipe: equipe,
             responsavel: responsavel,
             data: data,
@@ -394,7 +469,6 @@
         }
     }
 
-    // Inicialização do Formulário
     try { document.getElementById('dataAtual').value = new Date().toISOString().split('T')[0]; } catch(e){}
     renderizarTudo();
     add();
