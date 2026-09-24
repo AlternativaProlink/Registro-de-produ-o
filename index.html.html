@@ -469,7 +469,12 @@
         }
     }
 
-    try { document.getElementById('dataAtual').value = new Date().toISOString().split('T')[0]; } catch(e){}
+    try {
+        const hoje = new Date();
+        const dataLocal = hoje.getFullYear() + '-' + String(hoje.getMonth() + 1).padStart(2, '0') + '-' + String(hoje.getDate()).padStart(2, '0');
+        document.getElementById('dataAtual').value = dataLocal;
+    } catch(e) {}
+
     renderizarTudo();
     add();
 </script>
